@@ -3,11 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<groupId>com.trunghoang</groupId>
 	<artifactId>osgi-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>bundle</packaging>
+	<packaging>pom</packaging>
 
 	<dependencies>
 		<dependency>
@@ -22,14 +21,9 @@
 		<org.apache.felix.framework.version>4.2.1</org.apache.felix.framework.version>
 		<maven.bundle.plugin.version>3.3.0</maven.bundle.plugin.version>
 		<maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
-
+		
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-
-		<bundle.vendor>TrungHoang</bundle.vendor>
-		<bundle.name>OSGi Example</bundle.name>
-		<bundle.symbolicName>com.trunghoang.osgi.service.HelloService</bundle.symbolicName>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
@@ -44,24 +38,12 @@
 					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${maven.bundle.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Bundle-Version>${project.version}</Bundle-Version>
-						<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
-						<Bundle-Name>${bundle.name}</Bundle-Name>
-						<Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
-						<Bundle-Activator>${project.groupId}.osgi.service.activator.HelloServiceActivator</Bundle-Activator>
-						<Import-Package>org.osgi.framework</Import-Package>
-						<Export-Package>${project.groupId}.osgi.service</Export-Package>
-					</instructions>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
+
+	<modules>
+		<module>osgi-provider</module>
+		<module>osgi-consumer</module>
+		<module>osgi-framework</module>
+	</modules>
 </project>

@@ -1,4 +1,4 @@
-package com.trunghoang.osgi.service;
+package com.trunghoang.provider.osgi.service;
 
 public interface HelloService {
 

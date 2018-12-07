@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
-  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/felix/org.apache.felix.framework/4.2.1/org.apache.felix.framework-4.2.1.jar">
-    <attributes>
-      <attribute value="jar:file:/home/hmtrung/jenkins_home/workspace/Skylight-Director-DEV/.repository/org/apache/felix/org.apache.felix.framework/4.2.1/org.apache.felix.framework-4.2.1-javadoc.jar!/" name="javadoc_location"/>
-    </attributes>
-  </classpathentry>
 </classpath>

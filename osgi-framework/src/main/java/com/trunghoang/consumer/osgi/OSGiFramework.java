@@ -1,4 +1,4 @@
-package com.trunghoang.osgi;
+package com.trunghoang.consumer.osgi;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,9 +34,9 @@ public class OSGiFramework {
 	Map<String, String> osgiConfiguration = new HashMap<>();
 
 	osgiConfiguration.put( "org.osgi.framework.storage.clean", "onFirstInit" );
-	osgiConfiguration.put( "org.osgi.framework.storage", "/home/hmtrung/workspace/osgi-example/bundle.cache" );
+	osgiConfiguration.put( "org.osgi.framework.storage", "/home/hmtrung/workspace/osgi-example/osgi-framework/bundle.cache" );
 	osgiConfiguration.put( "org.osgi.framework.bundle.parent", "app" );
-	osgiConfiguration.put( "org.osgi.framework.system.packages.extra", "com.trunghoang.osgi.service.*" );
+	osgiConfiguration.put( "org.osgi.framework.system.packages.extra", "com.trunghoang.*" );
 
 	framework = frameworkFactory.newFramework( osgiConfiguration );
 	framework.start();
@@ -45,6 +45,10 @@ public class OSGiFramework {
 
     public void installBundle( String fullPath ) throws BundleException {
 	bundleContext.installBundle( fullPath );
+    }
+
+    public BundleContext getBundleContext() {
+	return bundleContext;
     }
 
     /**
@@ -67,16 +71,4 @@ public class OSGiFramework {
 	return null;
     }
 
-    public static void main( String[] args ) throws BundleException, InterruptedException {
-	String serviceName = "com.trunghoang.osgi.service.HelloService";
-	OSGiFramework fw = new OSGiFramework();
-
-	fw.start();
-	fw.installBundle( "file:target/osgi-example-0.0.1-SNAPSHOT.jar" );
-
-	Bundle hello = fw.getBundleByName( serviceName );
-	hello.start();
-	Thread.sleep( 1000 );
-	fw.stop();
-    }
 }
