@@ -12,8 +12,8 @@ public class Main {
 
 	    fw.start();
 
-	    fw.installBundle( "file:/home/hmtrung/workspace/osgi-example/osgi-provider/target/osgi-provider-0.0.1-SNAPSHOT.jar" );
-	    fw.installBundle( "file:/home/hmtrung/workspace/osgi-example/osgi-consumer/target/osgi-consumer-0.0.1-SNAPSHOT.jar" );
+	    fw.installBundle( Constants.BUNDLE_PROVIDER_PATH );
+	    fw.installBundle( Constants.BUNDLE_CONSUMER_PATH );
 
 	    fw.getBundleByName( providerName ).start();
 	    fw.getBundleByName( consumerName ).start();

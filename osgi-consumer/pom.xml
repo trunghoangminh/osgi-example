@@ -43,7 +43,11 @@
 						<Bundle-Name>${bundle.name}</Bundle-Name>
 						<Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
 						<Bundle-Activator>${project.groupId}.osgi.service.activator.HelloServiceConsumerActivator</Bundle-Activator>
+						<!-- If you want to import/export packages manually, must make sure 
+							all packages you need have to exported/imported. Otherwise Maven will generate 
+							automatically including some redundant packages -->
 						<Import-Package>org.osgi.framework;com.trunghoang.provider.osgi.service</Import-Package>
+						<!-- Include dependence packages if required -->
 						<!-- <Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency> -->
 					</instructions>
 				</configuration>

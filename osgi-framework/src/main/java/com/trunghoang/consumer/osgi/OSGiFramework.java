@@ -34,7 +34,9 @@ public class OSGiFramework {
 	Map<String, String> osgiConfiguration = new HashMap<>();
 
 	osgiConfiguration.put( "org.osgi.framework.storage.clean", "onFirstInit" );
-	osgiConfiguration.put( "org.osgi.framework.storage", "/home/hmtrung/workspace/osgi-example/osgi-framework/bundle.cache" );
+
+	// Set custom path cache. Default is "felix-cache"
+	osgiConfiguration.put( "org.osgi.framework.storage", Constants.CACHE_PATH );
 	osgiConfiguration.put( "org.osgi.framework.bundle.parent", "app" );
 	osgiConfiguration.put( "org.osgi.framework.system.packages.extra", "com.trunghoang.*" );
 
